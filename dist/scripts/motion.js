@@ -2,6 +2,7 @@ import { all, one } from './dom.js';
 
 export function setupMotion() {
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const hero = one('.hero');
   const progressBar = one('.scroll-progress');
   let scrollFrame = 0;
 
@@ -16,6 +17,10 @@ export function setupMotion() {
   }, { passive: true });
   window.addEventListener('resize', updateProgress);
   updateProgress();
+
+  if (hero && !reducedMotion.matches) {
+    requestAnimationFrame(() => hero.classList.add('motion-ready'));
+  }
 
   const revealItems = all('.section-heading, .approach-grid article, .about-heading, [data-reveal="item"]');
   if (reducedMotion.matches || !('IntersectionObserver' in window)) {

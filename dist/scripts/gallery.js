@@ -7,6 +7,7 @@ export function setupGallery() {
   const title = one('#gallery-title');
   const description = one('#gallery-description');
   const count = one('#gallery-count');
+  const copy = one('.gallery-dialog-copy', dialog);
   const figures = all('.source-gallery figure');
 
   if (!dialog || !image || !title || !description || !count || !figures.length) return;
@@ -28,6 +29,12 @@ export function setupGallery() {
     title.textContent = source.alt;
     description.textContent = figure.querySelector('figcaption')?.textContent || '';
     count.textContent = `${String(activeIndex + 1).padStart(2, '0')} / ${String(activeFigures.length).padStart(2, '0')}`;
+    image.classList.remove('gallery-image-enter');
+    copy?.classList.remove('gallery-copy-enter');
+    requestAnimationFrame(() => {
+      image.classList.add('gallery-image-enter');
+      copy?.classList.add('gallery-copy-enter');
+    });
   };
 
   const openFigure = (figure) => {
