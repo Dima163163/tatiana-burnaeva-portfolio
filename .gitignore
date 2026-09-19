@@ -3,3 +3,7 @@ node_modules/
 .vite-dist/
 .DS_Store
 output/playwright/
+.openai/
+.kilo/
+.vscode/
+output/
