@@ -1,0 +1,50 @@
+/* Татьянин личный финальный экран: вместо типового CTA — заметка-приглашение. */
+.hero-bottom strong{color:var(--coral);font-weight:500}
+.footer-contact{position:relative;isolation:isolate;overflow:hidden;background:var(--ink);color:var(--milk);padding:54px var(--pad) 28px}
+.footer-contact:before{content:'TB';position:absolute;z-index:-1;right:-.03em;bottom:-.27em;color:rgba(255,110,142,.18);font:600 clamp(240px,38vw,690px)/.72 var(--serif);letter-spacing:-.16em;pointer-events:none}
+.footer-contact:after{content:'';position:absolute;z-index:-1;left:-8vw;top:18%;width:32vw;height:32vw;border:1px solid rgba(199,255,109,.3);border-radius:50%;transform:rotate(-18deg);pointer-events:none}
+.footer-signal{display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1;color:var(--signal)}
+.footer-orbit{display:inline-flex;align-items:center;justify-content:center;width:66px;height:66px;border:1px solid var(--coral);border-radius:50%;color:var(--coral);font:11px var(--mono);transform:rotate(12deg)}
+.footer-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:8vw;align-items:end;position:relative;z-index:1;padding:45px 0 105px}
+.footer-intro h2{font:600 clamp(54px,9vw,150px)/.78 var(--serif);letter-spacing:-.1em;margin:27px 0 0}
+.footer-intro h2 em{font-style:normal;color:var(--coral);font-weight:500}
+.footer-note{max-width:410px;border-left:1px solid rgba(255,253,250,.36);padding:3px 0 7px 28px}
+.footer-note-mark{display:block;margin-bottom:22px;color:var(--coral);font:42px/1 var(--sans)}
+.footer-note p{margin:0;color:#d2ced9;line-height:1.65;max-width:355px}
+.footer-contact-trigger{display:inline-flex;align-items:center;gap:14px;margin-top:28px;padding:0 0 8px;background:none;border-bottom:1px solid var(--signal);color:var(--signal);font-size:13px;font-weight:600;text-align:left;transition:color .25s,border-color .25s,transform .25s}
+.footer-contact-trigger span{font-size:19px;line-height:1;transition:transform .25s}
+.footer-contact-trigger:hover{color:var(--coral);border-color:var(--coral);transform:translateX(4px)}
+.footer-contact-trigger:hover span{transform:translate(3px,-3px)}
+.footer-strip{display:grid;grid-template-columns:1.2fr 1fr auto;gap:22px;align-items:end;position:relative;z-index:1;border-top:1px solid rgba(255,253,250,.28);padding-top:17px;color:#bcb6c9;font:11px/1.4 var(--mono)}
+.footer-strip a{color:var(--signal);white-space:nowrap;transition:color .25s}
+.footer-strip a:hover{color:var(--coral)}
+@media(max-width:640px){.hero-bottom strong{display:inline}.footer-contact{padding-top:37px}.footer-grid{display:block;padding:38px 0 75px}.footer-intro h2{font-size:17vw;margin-top:23px}.footer-note{margin-top:52px;padding:0 0 0 19px}.footer-note-mark{margin-bottom:17px}.footer-note p{font-size:14px}.footer-contact-trigger{margin-top:22px}.footer-orbit{width:52px;height:52px;font-size:10px}.footer-strip{grid-template-columns:1fr;gap:11px}.footer-strip span:nth-child(2){display:none}.footer-strip a{justify-self:start}}
+
+/* Два брендовых учебных направления: характер считывается цветом и ритмом, без официальных логотипов. */
+.case-art-megafon{background:var(--signal);color:var(--ink)}
+.case-art-megafon .guide-question em{color:var(--ink)}
+.case-art-megafon .guide-panel{box-shadow:10px 10px 0 var(--ink)}
+.case-art-megafon .guide-arrow{color:var(--milk)}
+.case-art-mts{background:#d71920;color:var(--milk)}
+.mock-mts{height:100%;position:relative;overflow:hidden;padding:11% 8% 8%}
+.mts-mark{display:flex;align-items:center;justify-content:space-between;font:12px var(--mono)}
+.mts-mark b{font:600 clamp(43px,6vw,92px)/.8 var(--sans);letter-spacing:-.12em}
+.mts-mark span{font-size:27px;color:var(--signal);transform:rotate(45deg)}
+.mts-message{position:absolute;left:8%;top:27%;font:600 clamp(32px,4.2vw,70px)/.86 var(--serif);letter-spacing:-.09em}
+.mts-message em{color:var(--signal);font-style:normal;font-weight:500}
+.mts-pills{position:absolute;right:8%;bottom:12%;display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end;max-width:62%;transform:rotate(-4deg)}
+.mts-pills span{padding:11px 13px;background:var(--milk);color:var(--ink);font-size:12px;box-shadow:5px 5px 0 var(--ink)}
+.mts-spark{position:absolute;right:10%;top:28%;font:clamp(70px,9vw,130px)/1 var(--sans);font-style:normal;color:var(--signal);opacity:.9;transform:rotate(14deg)}
+.case-art-unified{background:var(--violet);color:var(--ink)}
+.mock-unified{height:100%;position:relative;overflow:hidden;padding:11% 8% 8%}
+.unified-top{display:flex;align-items:center;justify-content:space-between;font:12px var(--mono)}
+.unified-top b{font:600 28px var(--serif);letter-spacing:-.08em}
+.unified-word{position:absolute;left:8%;top:31%;font:600 clamp(48px,7vw,112px)/.78 var(--serif);letter-spacing:-.12em}
+.unified-word em{font-style:normal;color:var(--coral);font-weight:500}
+.unified-orbit{position:absolute;right:9%;top:22%;width:155px;height:155px;border:1px solid var(--ink);border-radius:50%;display:grid;place-items:center;transform:rotate(-12deg)}
+.unified-orbit span{font:600 23px var(--mono);color:var(--coral)}
+.unified-orbit i{position:absolute;width:12px;height:12px;border-radius:50%;background:var(--ink)}
+.unified-orbit i:nth-child(1){top:8px;left:47%}.unified-orbit i:nth-child(2){right:14px;bottom:26%}.unified-orbit i:nth-child(3){left:15px;bottom:20%;background:var(--coral)}
+.mock-unified p{position:absolute;right:8%;bottom:12%;font:600 clamp(17px,2vw,29px)/.95 var(--serif);letter-spacing:-.07em;text-align:right}
+@media(max-width:640px){.mts-message{top:31%;font-size:42px}.mts-pills{right:6%;bottom:11%;max-width:73%}.mts-pills span{padding:8px 9px;font-size:10px}.mts-spark{font-size:82px;top:26%}.unified-orbit{width:112px;height:112px;right:7%;top:23%}.unified-word{top:35%;font-size:59px}.mock-unified p{font-size:20px;bottom:11%}}
+@media(min-width:641px) and (max-width:850px){.mts-message{font-size:clamp(27px,4.8vw,48px)}.mts-pills{max-width:72%}.mts-pills span{padding:8px 9px;font-size:10px}.mts-spark{font-size:78px}.unified-word{top:34%;left:8%;max-width:52%;font-size:clamp(32px,5vw,43px)}.unified-orbit{width:76px;height:76px;right:7%;top:13%}.unified-orbit span{font-size:13px}.unified-orbit i{width:7px;height:7px}.unified-orbit i:nth-child(1){top:5px}.unified-orbit i:nth-child(2){right:7px}.unified-orbit i:nth-child(3){left:7px}.mock-unified p{left:8%;right:auto;bottom:9%;max-width:56%;font-size:12px;line-height:.95;text-align:left}}

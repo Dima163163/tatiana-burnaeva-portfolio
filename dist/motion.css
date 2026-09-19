@@ -1,0 +1,56 @@
+/* Motion layer: the interface should feel composed, not static. */
+:root{--motion-ease:cubic-bezier(.2,.8,.2,1);--motion-fast:cubic-bezier(.16,1,.3,1)}
+html{overflow-x:hidden}
+.page-loader{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;gap:18px;background:var(--ink);color:var(--milk);font:11px var(--mono);letter-spacing:.05em;pointer-events:none}
+.loader-mark{color:var(--coral);font:600 76px/.8 var(--serif);letter-spacing:-.12em}
+.loader-status{align-self:flex-end;margin-bottom:calc(50vh - 8px);color:var(--signal);text-transform:uppercase}
+.page-loader i{position:absolute;left:0;bottom:0;width:100%;height:3px;background:var(--coral);transform-origin:left;animation:loader-line 1.05s var(--motion-fast) both}
+.motion-ready .page-loader{animation:loader-exit 1.2s var(--motion-fast) .35s both}
+.cursor-aura{position:fixed;z-index:0;top:0;left:0;width:320px;height:320px;border-radius:50%;pointer-events:none;opacity:0;transform:translate3d(calc(var(--cursor-x, 50vw) - 50%),calc(var(--cursor-y, 50vh) - 50%),0);background:radial-gradient(circle,rgba(255,110,142,.18),rgba(255,110,142,0) 68%);mix-blend-mode:multiply;transition:opacity .4s ease}
+.cursor-enabled .cursor-aura{opacity:1}
+.scroll-progress{position:fixed;z-index:50;top:0;left:0;width:0;height:4px;background:linear-gradient(90deg,var(--coral),var(--signal));box-shadow:0 0 18px rgba(255,110,142,.45);pointer-events:none}
+.hero{perspective:1200px}
+.hero-constellation{position:absolute;z-index:0;right:4%;top:18%;width:min(30vw,380px);height:min(30vw,380px);border:1px solid rgba(37,32,51,.2);border-radius:50%;transform:rotate(-13deg);pointer-events:none;animation:orbit-drift 16s ease-in-out infinite alternate}
+.hero-constellation:before,.hero-constellation:after{content:'';position:absolute;inset:12%;border:1px dashed rgba(37,32,51,.2);border-radius:50%;transform:rotate(42deg)}
+.hero-constellation:after{inset:30%;border-style:solid;opacity:.55}
+.hero-constellation span{position:absolute;top:8%;left:16%;font:11px var(--mono);color:var(--coral)}
+.hero-constellation i,.hero-constellation b,.hero-constellation em{position:absolute;display:block;width:9px;height:9px;border-radius:50%;background:var(--ink);font-style:normal}
+.hero-constellation i{top:14%;right:20%;background:var(--coral)}.hero-constellation b{right:7%;bottom:20%;background:var(--signal)}.hero-constellation em{left:25%;bottom:8%;border:1px solid var(--ink);background:var(--porcelain)}
+.hero-marquee{position:absolute;z-index:0;right:-4%;bottom:108px;overflow:hidden;width:55%;color:rgba(37,32,51,.25);font:10px var(--mono);white-space:nowrap;letter-spacing:.12em;transform:rotate(-7deg);pointer-events:none}
+.hero-marquee span{display:inline-block;animation:marquee-slide 26s linear infinite}
+.motion-ready .hero-copy{animation:hero-rise .95s var(--motion-fast) .9s both}
+.hero-portrait{translate:0 var(--portrait-shift,0px)}
+.motion-ready .hero-portrait{animation:hero-float-in 1.2s var(--motion-fast) 1.05s both}
+.motion-ready .hero-bottom{animation:line-in .8s var(--motion-fast) 1.45s both}
+.motion-ready .thought{animation:chip-float 5s ease-in-out infinite}
+.motion-ready .thought-shape{animation-delay:-1.8s}.motion-ready .thought-test{animation-delay:-3.2s}
+.motion-ready .process-card{animation:card-float 5s ease-in-out 1s infinite}
+.motion-ready [data-reveal]{opacity:0;transform:translateY(42px);transition:opacity .9s var(--motion-ease),transform .9s var(--motion-ease)}
+.motion-ready [data-reveal="section"]{transform:translateY(54px)}
+.motion-ready [data-reveal].is-visible{opacity:1;transform:none}
+.motion-ready [data-reveal="card"]:nth-child(2){transition-delay:.12s}.motion-ready [data-reveal="card"]:nth-child(3){transition-delay:.23s}
+.case-art{transform-style:preserve-3d;will-change:transform,filter}
+.case-art:before{content:'';position:absolute;z-index:1;inset:-40%;background:linear-gradient(115deg,transparent 44%,rgba(255,255,255,.22) 49%,transparent 54%);transform:translateX(-62%) rotate(9deg);transition:transform .8s var(--motion-ease);pointer-events:none}
+.case-art:hover:before,.case-art:focus-visible:before{transform:translateX(62%) rotate(9deg)}
+.case-art.tilt-active{transition:transform .14s ease-out,filter .25s ease}
+.case-art.tilt-active:hover{transform:none;filter:saturate(1.06)}
+.case-art:not(.tilt-active){transition:transform .45s var(--motion-ease),filter .25s ease}
+.case-art:not(.tilt-active):hover{filter:saturate(1.08)}
+.footer-orbit{animation:orbit-spin 12s linear infinite}
+.footer-contact:after{animation:orbit-drift 14s ease-in-out infinite alternate}
+dialog[open]{animation:dialog-in .45s var(--motion-fast) both}
+dialog[open]::backdrop{animation:backdrop-in .35s ease both}
+@keyframes loader-line{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes loader-exit{0%{opacity:1;visibility:visible}75%{opacity:0;visibility:visible}100%{opacity:0;visibility:hidden}}
+@keyframes hero-rise{from{opacity:0;transform:translateY(35px)}to{opacity:1;transform:none}}
+@keyframes hero-float-in{from{opacity:0;transform:translate3d(30px,45px,0) rotate(2deg)}to{opacity:1;transform:translate3d(0,0,0) rotate(0)}}
+@keyframes line-in{from{opacity:0;transform:scaleX(.2);transform-origin:left}to{opacity:1;transform:scaleX(1)}}
+@keyframes chip-float{0%,100%{translate:0 0}50%{translate:0 -7px}}
+@keyframes card-float{0%,100%{translate:0 0}50%{translate:0 -4px}}
+@keyframes orbit-drift{from{rotate:-2deg;scale:1}to{rotate:7deg;scale:1.04}}
+@keyframes marquee-slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes orbit-spin{to{rotate:372deg}}
+@keyframes dialog-in{from{opacity:0;transform:translateY(24px) scale(.96)}to{opacity:1;transform:none}}
+@keyframes backdrop-in{from{opacity:0}to{opacity:1}}
+@media(max-width:640px){.cursor-aura{display:none}.hero-constellation{width:68vw;height:68vw;right:-22%;top:31%;opacity:.7}.hero-marquee{right:-28%;bottom:110px;width:120%;font-size:9px}.hero-constellation span{top:7%;left:13%}.motion-ready .hero-copy{animation-delay:.55s}.motion-ready .hero-portrait{animation-delay:.7s}.motion-ready .hero-bottom{animation-delay:1.15s}}
+@media(prefers-reduced-motion:reduce){.page-loader{display:none}.cursor-aura,.hero-marquee{display:none}.hero-constellation,.footer-orbit,.footer-contact:after,.thought,.process-card,.case-art:before,dialog[open],dialog[open]::backdrop{animation:none!important}.motion-ready [data-reveal]{opacity:1;transform:none;transition:none}.motion-ready .hero-copy,.motion-ready .hero-portrait,.motion-ready .hero-bottom{animation:none;opacity:1;transform:none}.case-art{transition:none!important}}

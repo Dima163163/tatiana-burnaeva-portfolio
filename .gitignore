@@ -1,0 +1,5 @@
+node_modules/
+.vite/
+.vite-dist/
+.DS_Store
+output/playwright/

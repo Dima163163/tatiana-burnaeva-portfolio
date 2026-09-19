@@ -1,0 +1,10 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": ".vite-dist",
+  "framework": "vite",
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/cases", "destination": "/cases/index.html" },
+    { "source": "/cases/:path*", "destination": "/cases/:path*" }
+  ]
+}
